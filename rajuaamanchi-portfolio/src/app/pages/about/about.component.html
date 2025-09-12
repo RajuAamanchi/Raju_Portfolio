@@ -1,0 +1,66 @@
+<div class="container py-5 fade-in">
+  <h1 class="text-center mb-5 display-4 fw-bold">About Me</h1>
+
+  <div class="row g-4">
+    <div class="col-lg-7">
+      <div class="card content-card mb-4 slide-in-left">
+        <div class="card-body">
+          <p class="lead">{{ aboutData.full_summary }}</p>
+          <hr class="my-4">
+          <ul class="list-unstyled">
+            <li *ngFor="let highlight of aboutData.highlights" class="mb-2 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill me-2 mt-1"></i>
+              <span>{{ highlight }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card content-card d-none d-lg-block slide-in-left" style="animation-delay: 200ms;">
+        <div class="card-header">
+          <h3 class="mb-0 card-title">
+            <i class="bi bi-mortarboard-fill me-2"></i>Education
+          </h3>
+        </div>
+        <div class="card-body">
+          <p class="mb-0 fs-5">{{ aboutData.education }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="card content-card h-100 slide-in-right">
+        <div class="card-header">
+          <h3 class="mb-0 card-title">
+            <i class="bi bi-tools me-2"></i>Technical Skills
+          </h3>
+        </div>
+        <div class="card-body">
+          <div *ngFor="let skill of skills | keyvalue: keepOriginalOrder" class="mb-3">
+            <h6 class="skill-category">{{ skill.key }}</h6>
+            <div class="skills-container">
+              <span *ngFor="let tech of parseSkills(skill.value)" class="skill-badge">
+                {{ tech }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4 d-lg-none">
+    <div class="col-12">
+      <div class="card content-card fade-in" style="animation-delay: 200ms;">
+        <div class="card-header">
+          <h3 class="mb-0 card-title">
+            <i class="bi bi-mortarboard-fill me-2"></i>Education
+          </h3>
+        </div>
+        <div class="card-body">
+          <p class="mb-0 fs-5">{{ aboutData.education }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

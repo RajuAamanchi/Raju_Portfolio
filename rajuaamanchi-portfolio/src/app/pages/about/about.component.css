@@ -1,0 +1,104 @@
+/* --- Entry Animations --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+
+/* --- Card Styling --- */
+.content-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border-radius: 0.75rem; /* Softer corners */
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(88, 166, 255, 0.1);
+  border-color: var(--accent-color);
+}
+
+.content-card .card-header {
+  background-color: var(--card-header-bg);;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 1.25rem;
+}
+
+.card-title {
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+}
+
+.card-title i {
+  color: var(--accent-color);
+}
+
+.content-card .lead {
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+.list-unstyled i {
+  color: var(--accent-color);
+  flex-shrink: 0; /* Prevents icon from shrinking */
+}
+
+
+/* --- New Skill Badge Styling --- */
+.skill-category {
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-badge {
+  display: inline-block;
+  background-color: var(--border-color);
+  color: var(--text-primary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.skill-badge:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-primary);
+  transform: scale(1.05);
+  cursor: default;
+}

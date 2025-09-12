@@ -1,0 +1,61 @@
+<div class="home-container fade-in">
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-md-5">
+      
+      <div class="col-10 col-sm-8 col-lg-6 mx-auto d-flex justify-content-center">
+        <div class="avatar-wrapper slide-in-right">
+          <img [src]="homeData.avatar" class="d-block mx-lg-auto img-fluid avatar-img" alt="Raju Aamanchi's Avatar" width="400" height="400" loading="lazy">
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="text-content slide-in-left">
+          <h1 class="display-3 fw-bold lh-1 mb-3">{{ homeData.name }}</h1>
+          
+          <h2 class="h3 mb-3 role-highlight">
+            <span>{{ displayedRole }}</span><span class="typing-cursor">|</span>
+          </h2>
+
+          <div class="experience-badge mb-4">
+            <span class="fw-bold">6+</span> Years of Experience
+          </div>
+
+          <p class="lead">{{ homeData.tagline }}</p>
+          
+          <div class="cta-buttons">
+            <div class="d-grid gap-3 d-md-flex justify-content-md-start mb-4">
+              <a *ngFor="let link of homeData.links; let i = index" 
+                 [href]="link.url" 
+                 target="_blank" 
+                 class="btn btn-lg px-4 me-md-2"
+                 [class.btn-primary]="i === 0" 
+                 [class.btn-outline-secondary]="i > 0">
+                <i [class]="link.icon"></i> {{ link.label }}
+              </a>
+            </div>
+            
+            <a href="assets/Raju_Aamanchi_Resume.pdf" class="btn btn-resume" download="Raju_Aamanchi_Resume.pdf">
+              <i class="bi bi-download me-2"></i> Download Resume
+            </a>
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="container px-4 py-5" id="hanging-icons">
+    <h2 class="pb-2 border-bottom fw-bold">Highlights</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col d-flex align-items-start" *ngFor="let highlight of homeData.highlights; let i = index" [style.animation-delay.ms]="100 * i">
+        <div class="icon-square">
+          <i class="bi bi-check2-circle"></i>
+        </div>
+        <div>
+          <p>{{ highlight }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

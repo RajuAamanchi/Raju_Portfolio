@@ -1,0 +1,44 @@
+<nav #navbar class="navbar navbar-expand-lg fixed-top" [class.navbar-dark]="(currentTheme$ | async) === 'dark'" [class.navbar-light]="(currentTheme$ | async) === 'light'">
+  <div class="container">
+    <a class="navbar-brand d-lg-none" routerLink="/" (click)="collapseNavbar()">Raju Aamanchi</a>
+    
+    <div class="d-flex align-items-center">
+      <button class="btn theme-toggle-btn d-lg-none" (click)="toggleTheme()" aria-label="Toggle theme">
+        <i class="bi" [class]="(currentTheme$ | async) === 'dark' ? 'bi-sun-fill' : 'bi-moon-stars-fill'"></i>
+      </button>
+      
+      <button #navToggler class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+    
+    <div #navbarNav class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="collapseNavbar()">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active" (click)="collapseNavbar()">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/experience" routerLinkActive="active" (click)="collapseNavbar()">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/projects" routerLinkActive="active" (click)="collapseNavbar()">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active" (click)="collapseNavbar()">Contact</a>
+        </li>
+      </ul>
+
+      <div class="navbar-nav social-icons align-items-center">
+        <a *ngFor="let link of socialLinks" [href]="link.url" target="_blank" class="nav-link" [attr.aria-label]="link.label">
+          <i [class]="link.icon"></i>
+        </a>
+        <button class="btn theme-toggle-btn d-none d-lg-block" (click)="toggleTheme()" aria-label="Toggle theme">
+          <i class="bi" [class]="(currentTheme$ | async) === 'dark' ? 'bi-sun-fill' : 'bi-moon-stars-fill'"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

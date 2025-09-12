@@ -1,0 +1,48 @@
+<div class="container py-5 fade-in">
+  <h1 class="text-center mb-5 display-4 fw-bold">My Projects</h1>
+  <div class="row g-4">
+    <div class="col-lg-6" *ngFor="let project of projects; let odd = odd; let even = even" 
+         [class.slide-in-left]="odd" 
+         [class.slide-in-right]="even">
+
+      <div class="card project-card h-100">
+        <div class="media-container">
+          <video #videoPlayer
+                 class="project-video"
+                 [poster]="project.posterPath"
+                 loop
+                 muted
+                 playsinline>
+            <source [src]="project.videoPath" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <button class="btn control-btn play-pause-btn" (click)="togglePlay(videoPlayer, project)" [attr.aria-label]="project.isPlaying ? 'Pause' : 'Play'">
+            <i class="bi" [class.bi-pause-circle-fill]="project.isPlaying" [class.bi-play-circle-fill]="!project.isPlaying"></i>
+          </button>
+          <a [href]="project.videoPath" target="_blank" class="btn control-btn new-tab-btn" aria-label="Open in new tab">
+            <i class="bi bi-box-arrow-up-right"></i>
+          </a>
+        </div>
+
+        <div class="project-content">
+          <div class="card-body">
+            <div class="card-title-group">
+              <h5 class="card-title fw-bold">{{ project.title }}</h5>
+              <a [href]="project.githubUrl" target="_blank" class="github-link" aria-label="View Project on GitHub">
+                <i class="bi bi-github"></i>
+              </a>
+            </div>
+
+            <div class="tech-stack mb-3">
+              <span *ngFor="let tech of project.stack" class="tech-badge">
+                {{ tech }}
+              </span>
+            </div>
+            <p class="card-text">{{ project.full_desc }}</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

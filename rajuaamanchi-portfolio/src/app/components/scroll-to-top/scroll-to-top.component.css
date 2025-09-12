@@ -1,0 +1,65 @@
+/* Main container for the button */
+.progress-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary); /* Use a subtle background */
+  border: none;
+  z-index: 1000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.4s ease forwards;
+  transition: transform 0.2s ease;
+}
+
+.progress-container:hover {
+  transform: scale(1.1);
+}
+
+/* Position the arrow icon in the center */
+.progress-container i {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  z-index: 2; /* Ensure it's above the SVG */
+}
+
+/* Style the SVG container */
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg); /* Start the progress from the top */
+}
+
+/* Style for both the track and the indicator */
+.progress-ring-track,
+.progress-ring-indicator {
+  fill: transparent;
+  stroke-width: 3px;
+}
+
+/* The light grey background track */
+.progress-ring-track {
+  stroke: var(--border-color);
+}
+
+/* The colored indicator that animates */
+.progress-ring-indicator {
+  stroke: var(--accent-color);
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

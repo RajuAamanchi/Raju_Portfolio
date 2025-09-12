@@ -1,0 +1,62 @@
+<div class="container py-5 fade-in">
+  <div class="row align-items-center g-5">
+
+    <div class="col-lg-6 slide-in-left">
+      <div class="text-content">
+        <h1 class="display-4 fw-bold mb-3">Get In Touch</h1>
+        <p class="lead text-secondary mb-4">
+          I'm always excited to discuss new projects, creative ideas, or opportunities to be part of an ambitious team. Feel free to reach out using your preferred method below.
+        </p>
+        <p class="lead text-secondary">Let's build something great together!</p>
+      </div>
+    </div>
+
+    <div class="col-lg-6 slide-in-right">
+      <div class="row g-4">
+
+         <div class="col-md-6">
+          <a [href]="contactInfo.LinkedIn" target="_blank" class="contact-card-link">
+            <div class="contact-card h-100 p-4 text-center">
+              <div class="icon-wrapper"><i class="bi bi-linkedin"></i></div>
+              <h4>LinkedIn</h4>
+              <p class="contact-detail">Raju Aamanchi</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-6">
+          <a [href]="'mailto:' + contactInfo.Email" class="contact-card-link">
+            <div class="contact-card h-100 p-4 text-center">
+              <div class="icon-wrapper"><i class="bi bi-envelope-fill"></i></div>
+              <h4>Email</h4>
+              <p class="contact-detail">{{ contactInfo.Email }}</p>
+            </div>
+          </a>
+        </div>
+        
+       
+
+        <div class="col-md-6">
+          <a [href]="contactInfo.GitHub" target="_blank" class="contact-card-link">
+            <div class="contact-card h-100 p-4 text-center">
+              <div class="icon-wrapper"><i class="bi bi-github"></i></div>
+              <h4>GitHub</h4>
+              <p class="contact-detail">RajuAamanchi</p>
+            </div>
+          </a>
+        </div>
+        
+        <div class="col-md-6">
+          <a [href]="'tel:' + contactInfo.Phone" class="contact-card-link">
+            <div class="contact-card h-100 p-4 text-center">
+              <div class="icon-wrapper"><i class="bi bi-telephone-fill"></i></div>
+              <h4>Phone</h4>
+              <p class="contact-detail">{{ contactInfo.Phone }}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

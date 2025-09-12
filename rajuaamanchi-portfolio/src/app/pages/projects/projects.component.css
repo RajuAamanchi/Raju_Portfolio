@@ -1,0 +1,157 @@
+/* --- Entry Animations --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.fade-in { animation: fadeIn 0.6s ease-out forwards; }
+.slide-in-left { opacity: 0; animation: slideInLeft 0.8s ease-out forwards; }
+.slide-in-right { opacity: 0; animation: slideInRight 0.8s ease-out forwards; }
+
+
+/* --- Refined Project Card --- */
+.project-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  overflow: hidden; /* Important for the video zoom effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(var(--accent-rgb), 0.15);
+  border-color: var(--accent-color);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Title and GitHub Link --- */
+.card-title-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.project-card .card-title {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 0; /* Remove margin as parent now handles spacing */
+}
+
+.github-link {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.github-link:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+.project-card .card-text {
+  color: var(--text-secondary);
+  flex-grow: 1; /* Allows text to fill space */
+}
+
+.media-container {
+  position: relative;
+  overflow: hidden; /* Also important for video zoom */
+}
+
+.project-video {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  background-color: #000;
+  transition: transform 0.4s ease-in-out;
+}
+
+/* --- Dynamic Hover Effect for Video --- */
+.project-card:hover .project-video {
+  transform: scale(1.05);
+}
+
+/* --- Tech Stack Badges --- */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tech-badge {
+  background-color: var(--border-color);
+  color: var(--text-primary);
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+
+/* --- Alternating Layout for Desktop --- */
+@media (min-width: 992px) {
+  /* Select every second project card */
+  .project-card:nth-child(even) {
+    display: flex;
+    flex-direction: row;
+  }
+  .project-card:nth-child(even) .media-container {
+    flex: 0 0 50%;
+    height: auto;
+  }
+  .project-card:nth-child(even) .project-video {
+    height: 100%;
+  }
+  .project-card:nth-child(even) .project-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+/* --- Video Controls --- */
+.control-btn {
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(13, 17, 23, 0.7);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+.control-btn:hover {
+  background-color: rgba(88, 166, 255, 0.8);
+  transform: scale(1.1);
+  color: #fff;
+}
+.play-pause-btn {
+  bottom: 10px;
+  right: 10px;
+}
+.new-tab-btn {
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.1rem;
+}

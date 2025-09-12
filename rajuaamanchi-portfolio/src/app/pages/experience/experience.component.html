@@ -1,0 +1,22 @@
+<div class="container py-5 fade-in">
+  <h1 class="text-center mb-5 display-4 fw-bold">Work Experience</h1>
+  
+  <div class="timeline">
+    <div class="timeline-item" *ngFor="let job of experienceData">
+      <div class="timeline-content">
+        
+        <div class="timeline-header">
+          <img [src]="job.logoPath" [alt]="job.title.split(',')[0] + ' logo'" class="company-logo">
+          <div class="title-group">
+            <h3 class="timeline-title">{{ job.title }}</h3>
+            <p class="timeline-duration">{{ job.duration }}</p>
+          </div>
+        </div>
+
+        <ul class="summary-list">
+          <li *ngFor="let point of job.summary">{{ point }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

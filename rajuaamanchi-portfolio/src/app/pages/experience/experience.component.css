@@ -1,0 +1,138 @@
+
+
+/* --- Entry Animations (remain the same) --- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* --- New Single-Column Timeline Structure --- */
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background-color: var(--border-color);
+  top: 10px;
+  bottom: 10px;
+  left: 20px;
+  margin-left: -1.5px;
+}
+
+.timeline-item {
+  padding: 1rem 0 2rem 55px;
+  position: relative;
+  width: 100%;
+  opacity: 0;
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+/* --- Updated Timeline Dot Styling --- */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 11px;
+  top: 25px;
+  background-color: var(--bg-secondary);
+  border: 3px solid var(--accent-color);
+  border-radius: 50%;
+  z-index: 10;
+  /* Add a static glow and a smooth transition */
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* New hover effect for the dot */
+.timeline-item:hover::before {
+  transform: scale(1.2); /* Make the dot slightly larger on hover */
+  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.5); /* Intensify the glow */
+}
+
+/* --- Refined Content Card --- */
+.timeline-content {
+  padding: 1.5rem;
+  background-color: var(--bg-secondary);
+  position: relative;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(var(--accent-rgb), 0.1);
+  border-color: var(--accent-color);
+}
+
+/* --- New Card Header Styling --- */
+.timeline-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.company-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-right: 1rem;
+  background-color: #ffffff;
+  padding: 5px;
+  border: 1px solid var(--border-color);
+}
+
+.timeline-title {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-duration {
+  display: inline-block;
+  background-color: var(--border-color);
+  color: var(--accent-color);
+  font-style: normal;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
+
+.summary-list {
+  padding-left: 0;
+  list-style: none;
+  color: var(--text-secondary);
+}
+
+.summary-list li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.summary-list li::before {
+  content: '>';
+  font-family: monospace;
+  color: var(--accent-color);
+  font-weight: 700;
+  margin-right: 10px;
+  font-size: 1.2rem;
+  line-height: 1.3rem;
+}

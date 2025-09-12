@@ -1,0 +1,8 @@
+<button *ngIf="showButton" class="progress-container" (click)="scrollToTop()" aria-label="Scroll to top">
+  <i class="bi bi-arrow-up"></i>
+  
+  <svg class="progress-ring" width="50" height="50">
+    <circle class="progress-ring-track" cx="25" cy="25" r="23"></circle>
+    <circle #progressCircle class="progress-ring-indicator" cx="25" cy="25" r="23"></circle>
+  </svg>
+</button>

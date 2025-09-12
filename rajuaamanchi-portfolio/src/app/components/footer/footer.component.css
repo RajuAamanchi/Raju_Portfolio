@@ -1,0 +1,50 @@
+.footer {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 0;
+  font-size: 0.95rem;
+}
+
+.fw-semibold {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.footer-contact li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-link,
+.footer-contact a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-link:hover,
+.footer-contact a:hover {
+  color: var(--accent-color);
+}
+
+.footer-social-link {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.footer-social-link:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+.footer-divider {
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-copy {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
